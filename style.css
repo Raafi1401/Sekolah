@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+	color-scheme: light;
+	--ink: #413f39;
+	--paper: #e9e3d8;
+	--muted-paper: #d8d0c3;
+	--terracotta: #a76f5b;
+	--olive: #85836a;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	padding: 11vh 22px 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--ink);
+	font-family: 'DM Sans', sans-serif;
+	background-color: var(--paper);
+	background-image:
+		radial-gradient(ellipse at 9% 17%, rgba(167, 111, 91, .20) 0 7%, transparent 7.3%),
+		radial-gradient(ellipse at 91% 78%, rgba(133, 131, 106, .22) 0 11%, transparent 11.3%),
+		linear-gradient(132deg, transparent 0 45%, rgba(177, 154, 126, .16) 45.2% 55%, transparent 55.2%),
+		repeating-linear-gradient(165deg, transparent 0 42px, rgba(91, 83, 69, .045) 43px 44px);
+}
+
+#scheduleForm {
+	width: min(100%, 430px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#scheduleForm h1 {
+	margin: 0 0 28px;
+	color: var(--ink);
+	font: 700 clamp(2rem, 7vw, 2.8rem)/1.15 'Playfair Display', serif;
+	text-align: center;
+}
+
+#scheduleForm br {
+	display: none;
+}
+
+body::before,
+body::after {
+	position: fixed;
+	z-index: -1;
+	content: '';
+	pointer-events: none;
+}
+
+body::before {
+	width: 310px;
+	height: 190px;
+	left: -100px;
+	bottom: 9%;
+	border: 1px solid rgba(114, 100, 79, .22);
+	border-radius: 48% 52% 62% 38% / 57% 35% 65% 43%;
+	transform: rotate(-24deg);
+}
+
+body::after {
+	width: 210px;
+	height: 270px;
+	top: -110px;
+	right: 7%;
+	border: 1px solid rgba(167, 111, 91, .28);
+	border-radius: 42% 58% 36% 64% / 52% 38% 62% 48%;
+	transform: rotate(29deg);
+}
+
+#dayInput {
+	width: min(100%, 390px);
+	min-height: 54px;
+	padding: 14px 18px;
+	border: 1px solid #bdb3a3;
+	border-radius: 3px 18px 3px 18px;
+	outline: none;
+	color: var(--ink);
+	background: rgba(245, 241, 233, .76);
+	font: inherit;
+	transition: border-color .2s ease, background-color .2s ease;
+}
+
+#dayInput::placeholder {
+	color: #888174;
+}
+
+#dayInput:focus {
+	border-color: var(--terracotta);
+	background-color: #f0eade;
+}
+
+#scheduleForm button {
+	min-height: 48px;
+	margin-top: 15px;
+	padding: 13px 25px;
+	border: 0;
+	border-radius: 18px 3px 18px 3px;
+	color: #f3eee5;
+	background-color: var(--terracotta);
+	font: 600 .95rem 'DM Sans', sans-serif;
+	cursor: pointer;
+	transition: background-color .2s ease, transform .2s ease;
+}
+
+#scheduleForm button:hover {
+	background-color: #8f5e4d;
+	transform: translateY(-2px);
+}
+
+#scheduleForm button:active {
+	transform: translateY(0);
+}
+
+#scheduleForm button:focus-visible {
+	outline: 3px solid rgba(167, 111, 91, .35);
+	outline-offset: 3px;
+}
+
+.output {
+	width: min(100%, 390px);
+	min-height: 90px;
+	margin: 27px 0 0;
+	padding: 22px 26px;
+	border: 1px solid rgba(112, 101, 82, .25);
+	border-radius: 3px 28px 3px 28px;
+	background: rgba(244, 239, 230, .79);
+	box-shadow: 7px 8px 0 rgba(112, 101, 82, .08);
+	line-height: 1.8;
+	text-align: center;
+}
+
+.output ol {
+	margin: 0;
+	padding: 0;
+}
+
+.output li {
+	padding: 5px 0;
+	border-bottom: 1px solid rgba(112, 101, 82, .14);
+}
+
+.output li:last-child {
+	border-bottom: 0;
+}
+
+.output:empty {
+	visibility: hidden;
+}
+
+#dayInput:focus-visible {
+	box-shadow: 0 0 0 3px rgba(167, 111, 91, .16);
+}
+
+@media (max-width: 480px) {
+	body {
+		padding-top: 15vh;
+	}
+
+	.output {
+		padding: 19px 18px;
+	}
+
+	#scheduleForm h1 {
+		margin-bottom: 24px;
+	}
+}

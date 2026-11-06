@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jadwal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="scheduleForm" onsubmit="event.preventDefault(); getSchedule();">
+        <h1>Jadwal Pelajaran</h1>
+        <input type="text" name="input" id="dayInput" placeholder="Masukkan hari (Senin-Minggu)"> <br>
+        <button type="submit">Cari Jadwal</button>
+    </form>
+    <p class="output"></p>
+    <script>
+        let output = document.querySelector('.output');
+        let senin = `<ol style="list-style-type: none;"><li>Informatika</li><li>Pendidikan Pancasila</li><li>Bahasa Inggris</li></ol>`;
+        let selasa = `<ol style="list-style-type: none;"><li>Bahasa Indonesia</li><li>IPAS 1(Kimia)</li><li>PJOK</li></ol>`;
+        let rabu = `<ol style="list-style-type: none;"><li>Sejarah</li><li>Bahasa Indonesia</li><li>Matematika</li><li>Gambar Teknik</li></ol>`;
+        let kamis = `<ol style="list-style-type: none;"><li>Praktek</li></ol>`;
+        let jumat = `<ol style="list-style-type: none;"><li>IPAS 2(fisika)</li><li>Pendidikan Agama Islam</li></ol>`;
+        let sabtu = `<ol style="list-style-type: none;"><li>Matematika</li><li>Pengetahuan Dasar Teknik Mesin</li><li>Seni Budaya</li><li>Bahasa Inggris</li></ol>`;
+
+        function getSchedule() {
+            let dayInput = document.getElementById('dayInput').value.toLowerCase();
+            let output = document.querySelector('.output');
+            switch(dayInput) {
+                case 'senin':
+                    output.innerHTML = senin;
+                    break;
+                case 'selasa':
+                    output.innerHTML = selasa;
+                    break;
+                case 'rabu':
+                    output.innerHTML = rabu;
+                    break;
+                case 'kamis':
+                    output.innerHTML = kamis;
+                    break;
+                case 'jumat':
+                    output.innerHTML = jumat;
+                    break;
+                case 'sabtu':
+                    output.innerHTML = sabtu;
+                    break;
+                case 'minggu':
+                    output.innerHTML = "LIBUR";
+                    break;
+                case '':
+                    output.innerHTML = "Masukkan hari terlebih dahulu";
+                    break;
+                default:
+                    output.innerHTML = "Hari tidak valid";
+            }
+        }
+    </script>
+</body>
+</html>
